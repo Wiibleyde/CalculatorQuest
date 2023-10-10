@@ -25,106 +25,106 @@ public partial class CalculatorScreen : Window
 
     private void Button0(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button Pressed");
+        Console.WriteLine("Button 0 Pressed");
     }
 
     private void ButtonC(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button C Pressed");
     }
 
     private void ButtonCE(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button CE Pressed");
     }
 
     private void ButtonDel(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button Del Pressed");
     }
 
     private void ButtonPercent(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button % Pressed");
     }
 
     private void ButtonApprox(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button +/- Pressed");
     }
 
     private void ButtonAdd(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button + Pressed");
     }
 
     private void ButtonSub(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button - Pressed");
     }
 
     private void Button1(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button 1 Pressed");
     }
 
     private void Button2(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button 2 Pressed");
     }
 
     private void Button3(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button 3 Pressed");
     }
 
     private void Button4(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button 4 Pressed");
     }
 
     private void Button5(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button 5 Pressed");
     }
 
     private void Button6(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button 6 Pressed");
     }
 
     private void Button7(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button 7 Pressed");
     }
 
     private void Button8(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button 8 Pressed");
     }
 
     private void Button9(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button 9 Pressed");
     }
 
     private void ButtonPoint(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button . Pressed");
     }
 
     private void ButtonEqual(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button = Pressed");
     }
 
     private void ButtonDivide(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button / Pressed");
     }
 
     private void ButtonMultiply(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Button * Pressed");
     }
 }
