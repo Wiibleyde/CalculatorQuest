@@ -10,47 +10,62 @@ public class Calc
     {
     }
 
-    public int Operator(string calcul)
+    public decimal Operator(string calcul)
     {
-        int result = 0;
-        string[] calculs = calcul.Split(_sign, StringSplitOptions.RemoveEmptyEntries);
-        int[] numbers = new int[calculs.Length];
-        for (int i = 0; i < calculs.Length; i++)
+        char[] operators = { '+', '-', 'x', '/', '%' };
+
+        string[] parts = calcul.Split(operators);
+
+        if (parts.Length < 2)
         {
-            numbers[i] = int.Parse(calculs[i]);
+            throw new ArgumentException("Invalid input string. At least two operands are required.");
         }
 
-        if (calcul.Contains("+"))
+        if (!decimal.TryParse(parts[0].Replace('.', ','), out decimal result))
         {
-            result = numbers[0] + numbers[1];
+            throw new ArgumentException($"Invalid number '{parts[0]}' in the input string.");
         }
-        else if (calcul.Contains("-"))
+
+        for (int i = 1; i < parts.Length; i++)
         {
-            result = numbers[0] - numbers[1];
-        }
-        else if (calcul.Contains("x"))
-        {
-            result = numbers[0] * numbers[1];
-        }
-        else if (calcul.Contains("/"))
-        {
-            if (numbers[1] == 0)
+            int operatorIndex = calcul.IndexOfAny(operators, parts[i - 1].Length);
+
+            if (operatorIndex == -1 || operatorIndex == calcul.Length - 1)
             {
-                throw new DivideByZeroException();
+                throw new ArgumentException($"Invalid input string. Operator missing after '{parts[i - 1]}'.");
             }
-            result = numbers[0] / numbers[1];
-        }
-        else if (calcul.Contains("%"))
-        {
-            if (numbers[1] == 0)
+
+            char op = calcul[operatorIndex];
+
+            if (!decimal.TryParse(parts[i].Replace('.', ','), out decimal operand))
             {
-                throw new DivideByZeroException();
+                throw new ArgumentException($"Invalid number '{parts[i]}' in the input string.");
             }
-            result = numbers[0] % numbers[1];
-        }
-        else 
-        {
-            result = numbers[0];
+
+            switch (op)
+            {
+                case '+':
+                    result += operand;
+                    break;
+                case '-':
+                    result -= operand;
+                    break;
+                case 'x':
+                    result *= operand;
+                    break;
+                case '/':
+                    if (operand == 0)
+                        throw new DivideByZeroException();
+                    result /= operand;
+                    break;
+                case '%':
+                    if (operand == 0)
+                        throw new DivideByZeroException();
+                    result %= operand;
+                    break;
+                default:
+                    throw new ArgumentException($"Invalid operator '{op}' in the input string.");
+            }
         }
 
         return result;
