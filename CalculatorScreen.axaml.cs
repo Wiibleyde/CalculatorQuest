@@ -8,123 +8,154 @@ namespace CalculatorQuest;
 
 public partial class CalculatorScreen : Window
 {
+    public string Calcul { get; set; }
+    private Label inputLabel;
+    
     public CalculatorScreen()
     {
         this.Width = 250;
         this.Height = 550;
-        TextBlock label = new TextBlock
-        {
-            Text = "Test!",
-            FontSize = 16,
-            FontWeight = Avalonia.Media.FontWeight.Bold,
-            Margin = new Thickness(10)
-        };
-        this.Content = label; 
         InitializeComponent();
+        inputLabel = this.FindControl<Label>("InputLabelCalc");
     }
 
     private void Button0(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button 0 Pressed");
+        Calcul += "0";
+        inputLabel.Content = Calcul;
     }
 
     private void ButtonC(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button C Pressed");
+        Calcul = "";
+        inputLabel.Content = Calcul;
     }
 
     private void ButtonCE(object? sender, RoutedEventArgs e)
     {
         Console.WriteLine("Button CE Pressed");
+        inputLabel.Content = Calcul;
     }
 
     private void ButtonDel(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button Del Pressed");
+        Calcul = Calcul.Remove(Calcul.Length - 1);
+        inputLabel.Content = Calcul;
     }
 
     private void ButtonPercent(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button % Pressed");
+        Calcul += "%";
+        inputLabel.Content = Calcul;
     }
 
     private void ButtonApprox(object? sender, RoutedEventArgs e)
     {
         Console.WriteLine("Button +/- Pressed");
+        inputLabel.Content = Calcul;
     }
 
     private void ButtonAdd(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button + Pressed");
+        Calcul += "+";
+        inputLabel.Content = Calcul;
     }
 
     private void ButtonSub(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button - Pressed");
+        Calcul += "-";
+        inputLabel.Content = Calcul;
     }
 
     private void Button1(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button 1 Pressed");
+        Calcul += "1";
+        inputLabel.Content = Calcul;
     }
 
     private void Button2(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button 2 Pressed");
+        Calcul += "2";
+        inputLabel.Content = Calcul;
     }
 
     private void Button3(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button 3 Pressed");
+        Calcul += "3";
+        inputLabel.Content = Calcul;
     }
 
     private void Button4(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button 4 Pressed");
+        Calcul += "4";
+        inputLabel.Content = Calcul;
     }
 
     private void Button5(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button 5 Pressed");
+        Calcul += "5";
+        inputLabel.Content = Calcul;
     }
 
     private void Button6(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button 6 Pressed");
+        Calcul += "6";
+        inputLabel.Content = Calcul;
     }
 
     private void Button7(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button 7 Pressed");
+        Calcul += "7";
+        inputLabel.Content = Calcul;
     }
 
     private void Button8(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button 8 Pressed");
+        Calcul += "8";
+        inputLabel.Content = Calcul;
     }
 
     private void Button9(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button 9 Pressed");
+        Calcul += "9";
+        inputLabel.Content = Calcul;
     }
 
     private void ButtonPoint(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button . Pressed");
+        Calcul += ".";
+        inputLabel.Content = Calcul;
     }
 
     private void ButtonEqual(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button = Pressed");
+        string result = Calcul;
+        Calc calc = new CalculatorQuest.Calc();
+        try 
+        {
+            result = calc.Operator(Calcul).ToString();
+            Calcul = result;
+        }
+        catch (DivideByZeroException)
+        {
+            Calcul = "Error";
+        }
+        catch (ArgumentException)
+        {
+            Calcul = "Error";
+        }
+        inputLabel.Content = Calcul;
     }
 
     private void ButtonDivide(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button / Pressed");
+        Calcul += "/";
+        inputLabel.Content = Calcul;
     }
 
     private void ButtonMultiply(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Button * Pressed");
+        Calcul += "x";
+        inputLabel.Content = Calcul;
     }
 }
