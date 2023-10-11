@@ -12,7 +12,7 @@ public partial class CalculatorScreen : Window
     private Label inputLabel;
     
     public CalculatorScreen()
-    {
+    {   
         this.Width = 250;
         this.Height = 550;
         InitializeComponent();
