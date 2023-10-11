@@ -134,7 +134,14 @@ public partial class CalculatorScreen : Window
         try 
         {
             result = calc.Operator(Calcul).ToString();
-            Calcul = result;
+            if (result == "666")
+            {
+                Calcul = "DEVIL";
+            }
+            else
+            {
+                Calcul = result;   
+            }
         }
         catch (DivideByZeroException)
         {
